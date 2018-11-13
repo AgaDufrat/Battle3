@@ -2,21 +2,8 @@ require 'sinatra/base'
 class Battle < Sinatra::Base
   enable :sessions
 
-  get '/players' do
-    erb(:player_form)
-  end
   get '/' do
-    erb(:player_form_2)
-  end
-
-  post '/hitpoints' do
-    p params
-    session[:player_2] = params[:player_2]
-    redirect to('/player_2_HP')
-  end
-  get '/player_2_HP' do
-    @player_2 = session[:player_2]
-    erb (:player_2_HP)
+    erb(:player_form)
   end
 
   get '/play' do
