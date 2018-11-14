@@ -18,5 +18,11 @@ class Battle < Sinatra::Base
     @player_2 = session[:player_2]
     erb(:player_names)
   end
+
+  get '/confirmation' do
+    @player_1 = session[:player_1]
+    @player_2 = session[:player_2]
+    erb(:confirmation)
+  end
   run! if app_file == $0
 end
