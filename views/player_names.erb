@@ -1,4 +1,4 @@
-<p><%= @player_1 %> HP is <%= @player_1_points %> and <%= @player_2%> HP is <%= @player_2_points %></p>
+<p><%= @game.player_1.name %> HP is <%= @game.player_1.points %> and <%= @game.player_2.name%> HP is <%= @game.player_2.points %></p>
 
 <form action="/attack">
   <input type="submit" value="Attack" />
