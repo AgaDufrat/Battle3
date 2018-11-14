@@ -10,5 +10,7 @@ describe Game do
       expect(player_2).to receive(:receive_damage)
       game.attack(player_2)
     end
+
+    
   end
 end
