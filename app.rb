@@ -11,12 +11,13 @@ class Battle < Sinatra::Base
     p params
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
-    $game = Game.new(player_1, player_2)
+#    $game = Game.new(player_1, player_2)
+    Game.set_game(Game.new(player_1, player_2))
     redirect to('/play')
   end
 
   get '/play' do
-    @game = $game
+    @game = Game.game_in_progress
     if @game.player_lost?
       erb(:game_over)
     else
@@ -26,7 +27,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @game = $game
+    @game = Game.game_in_progress
     @game.attack(@game.attacker, @game.defender)
 
     erb(:attack)

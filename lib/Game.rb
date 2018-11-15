@@ -5,6 +5,15 @@ class Game
     @player = [player_1, player_2]
     @attacker = player_2
     @defender = player_1
+    @@game_in_progress = nil
+  end
+
+  def self.set_game(game)
+    @@game_in_progress = game
+  end
+
+  def self.game_in_progress
+    @@game_in_progress
   end
 
    def player_1
