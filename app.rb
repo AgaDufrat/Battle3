@@ -17,8 +17,12 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
-    @game.switch_players
-    erb(:player_names)
+    if @game.player_lost?
+      erb(:game_over)
+    else
+      @game.switch_players
+      erb(:player_names)
+    end
   end
 
   get '/attack' do

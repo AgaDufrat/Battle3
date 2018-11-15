@@ -20,4 +20,11 @@ feature 'Testing infrastructure' do
     expect(page).to have_content 'Bob HP is 90 and James HP is 90'
   end
 
+  scenario 'show a lose page when a player reaches 0HP' do
+    sign_in_and_play
+    19.times { click_button "Attack"
+               click_button "Next players move" }
+    expect(page).to have_content 'LOSE'
+  end
+
 end

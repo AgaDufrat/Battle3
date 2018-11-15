@@ -22,4 +22,13 @@ class Game
   def switch_players
     @attacker, @defender = @defender, @attacker
   end
+
+  def player_lost?
+    (player_1.points == 0 || player_2.points == 0)
+  end
+
+  def loser
+    @player.select { |player| player.points <= 0 }.first
+  end
+
 end
