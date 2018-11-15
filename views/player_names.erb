@@ -2,9 +2,11 @@
 
 <p><%= @game.player_1.name %> HP is <%= @game.player_1.points %> and <%= @game.player_2.name%> HP is <%= @game.player_2.points %></p>
 
+<% if !@game.attacker.paralized? %>
 <form action="/attack">
   <input type="submit" value="Attack" />
 </form>
+<%end%>
 
 <form action="/sleep">
   <input type="submit" value="Send to sleep" />
@@ -12,4 +14,8 @@
 
 <form action="/poison">
   <input type="submit" value="Poison" />
+</form>
+
+<form action="/paralize">
+  <input type="submit" value="Paralize" />
 </form>

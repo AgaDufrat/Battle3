@@ -27,7 +27,7 @@ class Game
 
   def attack(defender,damage)
     @last_attack = damage
-    defender.receive_damage(damage)
+    defender.attacked(damage)
   end
 
   def sleep(defender)
@@ -36,6 +36,10 @@ class Game
 
   def poison(defender)
     @defender.poisoned
+  end
+
+  def paralize(defender)
+    @defender.paralized
   end
 
   def update_players

@@ -44,5 +44,10 @@ class Battle < Sinatra::Base
     erb(:poison)
   end
 
+  get '/paralize' do
+    @game.paralize(@game.defender)
+    erb(:paralize)
+  end
+
   run! if app_file == $0
 end
