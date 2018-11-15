@@ -1,4 +1,4 @@
-<p><%= @game.attacker.name %> attacked <%= @game.defender.name%></p>
+<p><%= @game.attacker.name %> attacked <%= @game.defender.name%> and did <%= @game.last_attack %>HP damage</p>
 
 <form action="/play">
   <input type="submit" value="Next players move" />

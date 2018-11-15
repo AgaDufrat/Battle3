@@ -1,5 +1,9 @@
 feature 'Testing infrastructure' do
 
+  before(:each) do
+    allow(Kernel).to receive(:rand).and_return 10
+  end
+
   scenario 'Can allow players to enter their name and see their HP' do
     sign_in_and_play
     expect(page).to have_content 'Bob HP is 100 and James HP is 100'

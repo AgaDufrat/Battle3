@@ -1,11 +1,12 @@
 class Game
-  attr_reader :attacker, :defender
+  attr_reader :attacker, :defender, :last_attack
+
+  @@game_in_progress = nil
 
   def initialize(player_1, player_2)
     @player = [player_1, player_2]
     @attacker = player_2
     @defender = player_1
-    @@game_in_progress = nil
   end
 
   def self.set_game(game)
@@ -24,8 +25,19 @@ class Game
      @player.last
    end
 
-  def attack(attacker,defender)
-    defender.receive_damage
+  def attack(defender,damage)
+    @last_attack = damage
+    defender.receive_damage(damage)
+  end
+
+  def sleep(defender)
+    @defender.send_to_sleep
+  end
+
+  def update_players
+    @player.each do |player|
+      player.update
+    end
   end
 
   def switch_players
