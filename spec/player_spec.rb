@@ -1,6 +1,6 @@
 require 'Player'
 
- 
+
 describe Player do
   let(:player) {Player.new('Bob')}
 
