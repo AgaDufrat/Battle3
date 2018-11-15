@@ -39,5 +39,10 @@ class Battle < Sinatra::Base
     erb(:sleep)
   end
 
+  get '/poison' do
+    @game.poison(@game.defender)
+    erb(:poison)
+  end
+
   run! if app_file == $0
 end

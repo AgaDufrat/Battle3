@@ -8,6 +8,7 @@ class Player
     @name = name
     @points = hp
     @asleep = false
+    @poisoned = false
   end
 
   def receive_damage(damage)
@@ -24,6 +25,15 @@ class Player
 
   def update
     @asleep = false
+    @poisoned = false if rand(10) < 3
+    receive_damage(rand(1..5)) if poisoned?
   end
 
+  def poisoned
+    @poisoned = true
+  end
+
+  def poisoned?
+    @poisoned
+  end
 end

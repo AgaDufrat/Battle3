@@ -34,6 +34,10 @@ class Game
     @defender.send_to_sleep
   end
 
+  def poison(defender)
+    @defender.poisoned
+  end
+
   def update_players
     @player.each do |player|
       player.update
